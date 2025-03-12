@@ -17,3 +17,10 @@ def item(request):
 
 def product(request):
     return HttpResponse("This is a product view")
+
+def detail(request, item_id):
+    item =Item.objects.get(pk=item_id)
+    context = {
+        'item': item,
+    }
+    return render(request, 'food/detail.html', context)
